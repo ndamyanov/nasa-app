@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+@media screen and (max-width: 800px) {
+  table { 
+    width: 100%; 
+  }
+}
+@media screen and (min-width: 800px) {
+  table { 
+    width: 80%; 
+  }
+}
+@media screen and (min-width: 1200px) {
+  table { 
+    width: 60%; 
+  }
+}
+table { 
+  border-collapse: collapse; 
+}
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+
+.star-wars {
+  /* Flexbox to center the entire element on the screen */
+  display: flex;
+  justify-content: center;
+  /* This is a magic number based on the context in which this snippet is used and effects the perspective */
+  height: 800px;
+  /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
+  perspective: 400px;
+  /* The rest is totally up to personal styling preferences */
+  color: #feda4a;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  text-align: justify;
+}
+
+
+.crawl {
+  /* Position the element so we can adjust the top property in the animation */
+  position: relative;
+  /* Defines the skew origin at the very center when we apply transforms on the animation */
+  transform-origin: 50% 100%;
+  /* Adds the crawl animation, which plays for one minute */
+  animation: crawl 60s linear;
+}
+
+@keyframes crawl {
+  0% {
+    /* The element starts below the screen */
+    top: 0;
+    /* Rotate the text 20 degrees but keep it close to the viewer */
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% { 
+    /* This is a magic number, but using a big one to make sure the text is fully off the screen at the end */
+    top: -6000px;
+    /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
